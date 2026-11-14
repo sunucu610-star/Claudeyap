@@ -12,11 +12,10 @@ jobs:
         with:
           distribution: temurin
           java-version: '25'
-          cache: maven
       - name: Derle
-        run: mvn -B package
+        run: mvn -B -f "$(find . -name pom.xml | head -n 1)" package
       - name: Jar dosyasini yukle
         uses: actions/upload-artifact@v4
         with:
           name: Market-jar
-          path: target/Market.jar
+          path: '**/target/Market.jar'
