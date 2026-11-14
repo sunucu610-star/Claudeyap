@@ -1,0 +1,136 @@
+# ============================================================
+#  SUNUCU MAĞAZASI  -  /market
+#  Değişiklikten sonra:  /marketadmin reload
+#
+#  Renk kodları: &e sarı, &7 gri, &c kırmızı, &a yeşil, &d pembe, &f beyaz
+#  Para birimi:  PARA (Vault varsa Vault, yoksa bakiyeler.yml)  |  KRISTAL
+# ============================================================
+
+ana-menu:
+  baslik: "SUNUCU MAĞAZASI"
+
+geri-butonu: "&cGeri"
+
+# SAT ürünlerinin üzerine gelince görünen yazı ({fiyat} otomatik dolar)
+esya-lore:
+  - ""
+  - "&e• &7ALIŞ FİYATI: &e{fiyat}"
+  - ""
+  - "&7Farenin &eORTA TUŞUYLA &7envanterindeki"
+  - "&7tüm bu eşyayla aynı türdeki"
+  - "&eeşyaları satabilirsin."
+
+# AL ürünlerinin (kristalle satın alınanlar) alt yazısı
+al-lore:
+  - "&e• &7ALIŞ FİYATI: &e{fiyat}"
+  - ""
+  - "&7Satın almak için &eSOL TIK&7."
+
+mesajlar:
+  prefix: "&8[&6Market&8] "
+  satildi: "&a{adet} adet &f{esya} &asattın ve &e{tutar} &akazandın."
+  esya-yok: "&cEnvanterinde satılacak &f{esya} &cyok."
+  satin-alindi: "&f{esya} &asatın aldın! &8(&e{tutar}&8)"
+  yetersiz-bakiye: "&cYetersiz bakiye! Gereken: &e{tutar}"
+  ayarlanmamis: "&cBu ürün henüz ayarlanmamış, yetkiliye haber ver."
+  bakiye: "&7Para: &e{para}$ &8| &7Kristal: &d{kristal}"
+  sadece-oyuncu: "&cBu komutu sadece oyuncular kullanabilir."
+  yetki-yok: "&cBunun için yetkin yok."
+  yenilendi: "&aMarket ayarları yenilendi."
+  kullanim: "&e/marketadmin reload &7veya &e/marketadmin <para|kristal> <ver|al|ayarla> <oyuncu> <miktar>"
+  oyuncu-yok: "&c{oyuncu} çevrimiçi değil."
+  admin-tamam: "&a{oyuncu} yeni bakiye: &e{bakiye}"
+
+# ------------------------------------------------------------
+#  KATEGORİLER  (slot: ana menüdeki yeri, 0-26)
+#  islem: SAT (varsayılan, sunucu senden alır)  |  AL (sen satın alırsın)
+#  AL ürünleri için: esya-ver: true  ve/veya  komutlar: [...]   ({oyuncu} yazılır)
+# ------------------------------------------------------------
+kategoriler:
+  end:
+    slot: 11
+    ikon: END_STONE
+    isim: "END"
+    baslik: "END"
+    esyalar:
+      - { malzeme: DRAGON_BREATH, isim: "Ejderha Nefesi", fiyat: 1000 }
+      - { malzeme: SHULKER_SHELL, isim: "Shulker Kabuğu", fiyat: 600 }
+      - { malzeme: ELYTRA, isim: "Elytra", fiyat: 5000 }
+      - { malzeme: CHORUS_FRUIT, isim: "Chorus Meyvesi", fiyat: 20 }
+      - { malzeme: END_STONE, isim: "End Taşı", fiyat: 5 }
+      - { malzeme: PURPUR_BLOCK, isim: "Purpur Blok", fiyat: 10 }
+      - { malzeme: END_ROD, isim: "End Çubuğu", fiyat: 15 }
+
+  nether:
+    slot: 12
+    ikon: NETHERRACK
+    isim: "NETHER"
+    baslik: "NETHER"
+    esyalar:
+      - { malzeme: BLAZE_ROD, isim: "Blaze Çubuğu", fiyat: 200 }
+      - { malzeme: GHAST_TEAR, isim: "Ghast Gözyaşı", fiyat: 350 }
+      - { malzeme: NETHERITE_SCRAP, isim: "Netherit Hurdası", fiyat: 1500 }
+      - { malzeme: MAGMA_CREAM, isim: "Magma Kreması", fiyat: 120 }
+      - { malzeme: NETHER_WART, isim: "Nether Yumrusu", fiyat: 50 }
+      - { malzeme: QUARTZ, isim: "Nether Kuvarsı", fiyat: 40 }
+      - { malzeme: GLOWSTONE_DUST, isim: "Parlaktaş Tozu", fiyat: 30 }
+      - { malzeme: SOUL_SAND, isim: "Ruh Kumu", fiyat: 10 }
+      - { malzeme: NETHERRACK, isim: "Netherrack", fiyat: 1 }
+
+  aletler:
+    slot: 13
+    ikon: TOTEM_OF_UNDYING
+    isim: "ALETLER"
+    baslik: "ALETLER"
+    esyalar:
+      - { malzeme: TOTEM_OF_UNDYING, isim: "Ölümsüzlük Totemi", fiyat: 1250 }
+      - { malzeme: ENCHANTED_GOLDEN_APPLE, isim: "Büyülü Altın Elma", fiyat: 900 }
+      - { malzeme: TIPPED_ARROW, isim: "Üretilemeyen İksirli Ok", fiyat: 500 }
+      - { malzeme: ENDER_PEARL, isim: "Ender İncisi", fiyat: 200 }
+      - { malzeme: END_CRYSTAL, isim: "End Kristali", fiyat: 800 }
+      - { malzeme: EXPERIENCE_BOTTLE, isim: "Tecrübe Şişesi", fiyat: 250 }
+
+  yemek:
+    slot: 14
+    ikon: BREAD
+    isim: "YEMEK"
+    baslik: "YEMEK"
+    esyalar:
+      - { malzeme: MELON_SLICE, isim: "Karpuz Dilimi", fiyat: 300 }
+      - { malzeme: CARROT, isim: "Havuç", fiyat: 250 }
+      - { malzeme: BAKED_POTATO, isim: "Fırınlanmış Patates", fiyat: 300 }
+      - { malzeme: APPLE, isim: "Elma", fiyat: 200 }
+      - { malzeme: SWEET_BERRIES, isim: "Tatlı Meyve", fiyat: 100 }
+      - { malzeme: COOKED_CHICKEN, isim: "Pişmiş Tavuk", fiyat: 400 }
+      - { malzeme: GOLDEN_CARROT, isim: "Altın Havuç", fiyat: 600 }
+      - { malzeme: GOLDEN_APPLE, isim: "Altın Elma", fiyat: 1000 }
+
+  kristaller:
+    slot: 15
+    ikon: AMETHYST_SHARD
+    isim: "KRİSTALLER"
+    baslik: "KRİSTALLER"
+    esyalar:
+      - malzeme: TRIPWIRE_HOOK
+        isim: "Altın Kasa Anahtarı"
+        islem: AL
+        para-birimi: KRISTAL
+        fiyat: 1000
+        esya-ver: true
+        # Gerçek kasa pluginin varsa esya-ver yerine komut kullan, örn:
+        # komutlar: ["crate key give {oyuncu} altin 1"]
+        aciklama:
+          - "&7Bu anahtara sahip olarak &eKasalar bölgesindeki"
+          - "&7kasayı açabilir ve içindeki"
+          - "&eMÜKEMMEL ÖDÜLLERE &7sahip olabilirsin."
+      - malzeme: SPAWNER
+        isim: "Zombi Spawneri"
+        islem: AL
+        para-birimi: KRISTAL
+        fiyat: 400
+        esya-ver: true
+        spawner-turu: ZOMBIE
+        aciklama:
+          - "&7Bu spawner ile &etüre özel eşyaları"
+          - "&eotomatik olarak &7kazanabilir ve bunları"
+          - "&emenüden &7kolayca satabilirsin."

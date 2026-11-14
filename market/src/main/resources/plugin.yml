@@ -1,0 +1,24 @@
+name: Market
+main: com.tabcraft.market.MarketPlugin
+version: 1.0.0
+api-version: '26.1'
+description: Sunucu Magazasi - /market
+softdepend: [Vault]
+
+commands:
+  market:
+    description: Sunucu magazasini acar
+    aliases: [magaza]
+    permission: market.use
+  bakiye:
+    description: Para ve kristal bakiyeni gosterir
+    permission: market.use
+  marketadmin:
+    description: Market yonetim komutu
+    permission: market.admin
+
+permissions:
+  market.use:
+    default: true
+  market.admin:
+    default: op
